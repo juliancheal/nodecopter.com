@@ -142,6 +142,7 @@ a:hover {
   background-image: url('/img/style/divider.png');
   border: none;
   margin: 35px 0 0 0;
+  clear: both;
 }
 #content h2,
 #content h2 a {
