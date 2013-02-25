@@ -90,21 +90,33 @@
       <h2 id="getting_started"><a href="#getting_started">Getting started</a></h2>
 
 <p>Wow, you&#39;re finally there and ready to hack a effin&#39; flying robot! Here&#39;s a simple
-way to get started.</p>
-<p>But before we start: Make sure that you have <a href="http://nodejs.org">Node.js</a> installed.</p>
+way to get started.
+
+</p>
+<p>But before we start: Make sure that you have <a href="http://nodejs.org">Node.js</a> installed.
+
+</p>
 <p>First off, you should get the FreeFlight app for your <a href="http://itunes.apple.com/en/app/free-flight/id373065271?mt=8">iOS</a>
 or <a href="https://play.google.com/store/apps/details?id=com.parrot.freeflight&amp;hl=en">Android</a>
-device if you don&#39;t have it already.</p>
+device if you don&#39;t have it already.
+
+</p>
 <p>Now connect to the drone&#39;s WiFi with your smartphone, start the FreeFlight app
 and make a test flight with it&#39;s Piloting feature to learn how the drone behaves.
 It&#39;s also a good time to check if the firmware of the drone is up to date. See
-<a href="/compass/setup_the_drones">setup the drones</a> for exact instructions.</p>
+<a href="/compass/setup_the_drones">setup the drones</a> for exact instructions.
+
+</p>
 <p>But controlling the drone with the phone is boring, let&#39;s program it! Connect to
-the drone&#39;s WiFi with your laptop and install the <a href="https://github.com/felixge/node-ar-drone">ar-drone</a> module:</p>
+the drone&#39;s WiFi with your laptop and install the <a href="https://github.com/felixge/node-ar-drone">ar-drone</a> module:
+
+</p>
 <ul>
 <li><code>$ npm install ar-drone</code></li>
 </ul>
-<p>Once you&#39;ve done that, save this to a file:</p>
+<p>Once you&#39;ve done that, save this to a file:
+
+</p>
 <pre><code>var arDrone = require(&#39;ar-drone&#39;);
 var client = arDrone.createClient();
 
@@ -122,22 +134,42 @@ client
     this.land();
   });</code></pre>
 <p>and execute it. See how your drone takes of, rotates clockwise and even does a flip!
-Amazing. Now you&#39;re set, go ahead and get crazy!</p>
+Amazing. Now you&#39;re set, go ahead and get crazy!
+
+</p>
 <h3>Help, my drone has gone wild!</h3>
 <p>If the drone doesn&#39;t react to your commands anymore, it&#39;s time to kill it before
 it crashes into someone&#39;s laptop. Catch the drone in flight, one hand at the top
 of the hull, the other one at the bottom. Now flip it over. That should do the
-trick.</p>
-<p>Have a look at <a href="http://www.youtube.com/watch?v=jl5v3bsMH_E#t=879s">this video at around 14:40m</a> to see how to do it.</p>
+trick.
+
+</p>
+<p>Have a look at <a href="http://www.youtube.com/watch?v=jl5v3bsMH_E#t=879s">this video at around 14:40m</a> to see how to do it.
+
+</p>
 <h3>All my LEDs are red and I cannot take off.</h3>
-<p>Looks like the emergency mode is in effect. To easy ways to fix this:</p>
+<p>Looks like the emergency mode is in effect. To easy ways to fix this:
+
+</p>
 <ul>
 <li><a href="https://github.com/felixge/node-ar-drone#clientdisableemergency">disable emergency mode with the client</a></li>
 <li>Reboot the drone by removing the battery and putting it in again</li>
 </ul>
+<h3>My drone seems to have a altitude limit</h3>
+<p>By default the drones have a altitude limit of 3 meters. You can either configure
+that within the smartphone app, as the setting is remembered, or use the ar-drone
+library an issue the following command:
+
+</p>
+<pre><code>client.config(&#39;control:altitude_max&#39;, 100000);</code></pre>
+<p>The setting&#39;s unit is millimeters.
+
+</p>
 <h3>Replacing the battery</h3>
 <p>Being a flying robot costs energy. Watch <a href="http://www.youtube.com/watch?v=QdFsd9R3vJ8&amp;feature=player_detailpage#t=25s">this video</a> to
-see how to replace your battery.</p>
+see how to replace your battery.
+
+</p>
 <h3>Further tips</h3>
 <ul>
 <li>look at the many already existing <a href="/modules">modules</a> you can use</li>
